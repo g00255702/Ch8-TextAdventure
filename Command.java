@@ -12,6 +12,8 @@
  * known) then the CommandWord is UNKNOWN.
  *
  * If the command had only one word, then the second word is <null>.
+ * @author Emeka Okonkwo
+ * @version 2017.11.17
  * 
  * @author  Michael Kölling and David J. Barnes
  * @version 2011.08.10

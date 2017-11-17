@@ -11,6 +11,8 @@
  *  rooms, creates the parser and starts the game.  It also evaluates and
  *  executes the commands that the parser returns.
  * 
+ * @author Emeka Okonkwo
+ * @version 2017.11.17
  * @author  Michael Kölling and David J. Barnes
  * @version 2011.08.10
  */
@@ -58,6 +60,11 @@ public class Game
         office.setExit("west", lab);
 
         currentRoom = outside;  // start game outside
+    }
+    
+    private void look()
+    {
+        System.out.println(currentRoom.getLongDescription());
     }
 
     /**

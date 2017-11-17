@@ -11,7 +11,8 @@ import java.util.Iterator;
  * A "Room" represents one location in the scenery of the game.  It is 
  * connected to other rooms via exits.  For each existing exit, the room 
  * stores a reference to the neighboring room.
- * 
+ * @author Emeka Okonkwo
+ * @version 2017.11.17
  * @author  Michael Kölling and David J. Barnes
  * @version 2011.08.10
  */
