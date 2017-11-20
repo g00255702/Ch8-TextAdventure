@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 /**
  *  This class is the main class of the "Trapped Genius" application. 
  *  "Trapped Genius" is a very simple, text based adventure game.  Users 
@@ -15,6 +17,16 @@
  * @version 2017.11.17
  * 
  * This version of the game has 12 Rooms and 12 Items
+ * Added a back command
+ * Added a look command
+ * Added a eat command
+ * Added a stack to go back multiple rooms
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
  * @author  Michael Kölling and David J. Barnes
  * @version 2011.08.10
  */
@@ -24,6 +36,10 @@ public class Game
     private Parser parser;
     private Room currentRoom;
     private Room priorRoom;
+    private Stack priorRooms = new Stack(); //used to implement the back command to take several rooms back
+    private Room ditch;
+    private Room secret;
+    private Room theMoon;
         
     /**
      * Create the game and initialise its internal map.
@@ -251,6 +267,7 @@ public class Game
         }
         else {
             priorRoom = currentRoom;
+            priorRooms.push(priorRoom);
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
         }
@@ -258,6 +275,7 @@ public class Game
     
     /**
      * This methods gets the previous Room that you were currently in and goes back to that room
+     * Modified to go back multiple rooms
      */
     private void goback()
     {
@@ -265,8 +283,12 @@ public class Game
         {
             System.out.println("You haven't moved anywhere. Start walking!");
         }
+        else if(priorRooms.empty())
+        {
+            System.out.println("Well there isn't any need to retrace your steps unless your lost");
+        }
         else{
-            currentRoom = priorRoom;
+            currentRoom = (Room) priorRooms.pop();
             System.out.println(currentRoom.getLongDescription());
         }
     }
