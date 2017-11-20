@@ -1,8 +1,8 @@
 /**
- *  This class is the main class of the "World of Zuul" application. 
- *  "World of Zuul" is a very simple, text based adventure game.  Users 
- *  can walk around some scenery. That's all. It should really be extended 
- *  to make it more interesting!
+ *  This class is the main class of the "Trapped Genius" application. 
+ *  "Trapped Genius" is a very simple, text based adventure game.  Users 
+ *  can walk around some scenery and hope nothing bad happens during their travels.
+ *  That's all.
  * 
  *  To play this game, create an instance of this class and call the "play"
  *  method.
@@ -36,36 +36,73 @@ public class Game
      */
     private void createRooms()
     {
-        Room outside, theater, pub, lab, office;
+        Room basement, lab1, lab2, kitchen1, kitchen2, backyard, secret, bathroom, ditch, otherside, theMoon, portal;
       
         // create the rooms
-        outside = new Room("outside the main entrance of the university");
-        theater = new Room("in a lecture theater");
-        pub = new Room("in the campus pub");
-        lab = new Room("in a computing lab");
-        office = new Room("in the computing admin office");
+        basement = new Room("You are currently in your happy place");
+        lab1 = new Room("You have entered your lab. You are surrounded by creatures not from earth");
+        lab2 = new Room("You enter a pitch black room with portal facing you");
+        kitchen1 = new Room("Entered the kitchen. Why not grab a bite to eat");
+        kitchen2 = new Room("Found yourself in another kitchen, but nothing edible to eat");
+        backyard = new Room("Find yourself 1,000 feet above ground level. Why don't you head back inside");
+        secret = new Room("You die instantly without knowing what eat you");
+        bathroom = new Room("Entered the bathroom. You know what to do from there");
+        ditch = new Room("You fell into a ditch");
+        otherside = new Room("You find yourself not fimilar to earth");
+        theMoon = new Room("Welcome to the Moon. You can't go back and have no oxygen to inhale. bye bye.");
+        portal = new Room("You stepped into a portal and feel nauseous. Where would you like to go from here?");
+        
+        
         
         // initialise room exits
-        outside.setExit("east", theater);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
+        bathroom.setExit("west", basement);
+        
+        kitchen1.setExit("north", basement);
+        
+        basement.setExit("east", bathroom);
+        basement.setExit("west", lab1);
+        basement.setExit("south", kitchen1);
+        
+        lab1.setExit("east", basement);
+        lab1.setExit("west", kitchen2);
+        lab1.setExit("north", lab2);
+        
+        lab2.setExit("south", lab1);
+        lab2.setExit("east", portal);
+        
+        portal.setExit("west", lab2);
+        portal.setExit("north", theMoon);
+        
+        kitchen2.setExit("east", lab1);
+        kitchen2.setExit("west", backyard);
+        
+        backyard.setExit("north", ditch);
+        backyard.setExit("east", kitchen2);
+        
+        ditch.setExit("north", otherside);
+        
+        otherside.setExit("north", secret);
+        otherside.setExit("south", ditch);
 
-        theater.setExit("west", outside);
-
-        pub.setExit("east", outside);
-
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
-
-        office.setExit("west", lab);
-
-        currentRoom = outside;  // start game outside
+        currentRoom = basement;  // start game outside
     }
     
+    /**
+     * Gets the long description of the player's room
+     */
     private void look()
     {
         System.out.println(currentRoom.getLongDescription());
     }
+    
+    /**
+     * Eat command
+     */
+    private void eat()
+    {
+        System.out.println("You have eaten now and you are not hungry anymore.");
+    }
+
 
     /**
      *  Main play routine.  Loops until end of play.
@@ -91,8 +128,8 @@ public class Game
     private void printWelcome()
     {
         System.out.println();
-        System.out.println("Welcome to the World of Zuul!");
-        System.out.println("World of Zuul is a new, incredibly boring adventure game.");
+        System.out.println("Welcome Trapped Genius!");
+        System.out.println("Trapped Genius is a new, incredibly simple text adventure game.");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
@@ -125,6 +162,15 @@ public class Game
             case QUIT:
                 wantToQuit = quit(command);
                 break;
+                
+            case LOOK:
+                look();
+                break;
+                
+            case EAT:
+                eat();
+                break;
+                
         }
         return wantToQuit;
     }
