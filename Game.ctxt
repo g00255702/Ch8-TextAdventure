@@ -1,12 +1,15 @@
 #BlueJ class context
 comment0.target=Game
-comment0.text=\r\n\ \ This\ class\ is\ the\ main\ class\ of\ the\ "Trapped\ Genius"\ application.\ \r\n\ \ "Trapped\ Genius"\ is\ a\ very\ simple,\ text\ based\ adventure\ game.\ \ Users\ \r\n\ \ can\ walk\ around\ some\ scenery\ and\ hope\ nothing\ bad\ happens\ during\ their\ travels.\r\n\ \ That's\ all.\r\n\ \r\n\ \ To\ play\ this\ game,\ create\ an\ instance\ of\ this\ class\ and\ call\ the\ "play"\r\n\ \ method.\r\n\ \r\n\ \ This\ main\ class\ creates\ and\ initialises\ all\ the\ others\:\ it\ creates\ all\r\n\ \ rooms,\ creates\ the\ parser\ and\ starts\ the\ game.\ \ It\ also\ evaluates\ and\r\n\ \ executes\ the\ commands\ that\ the\ parser\ returns.\r\n\ \r\n\ @author\ Emeka\ Okonkwo\r\n\ @version\ 2017.11.17\r\n\ @author\ \ Michael\ K\u00F6lling\ and\ David\ J.\ Barnes\r\n\ @version\ 2011.08.10\r\n
+comment0.text=\r\n\ \ This\ class\ is\ the\ main\ class\ of\ the\ "Trapped\ Genius"\ application.\ \r\n\ \ "Trapped\ Genius"\ is\ a\ very\ simple,\ text\ based\ adventure\ game.\ \ Users\ \r\n\ \ can\ walk\ around\ some\ scenery\ and\ hope\ nothing\ bad\ happens\ during\ their\ travels.\r\n\ \ That's\ all.\r\n\ \r\n\ \ To\ play\ this\ game,\ create\ an\ instance\ of\ this\ class\ and\ call\ the\ "play"\r\n\ \ method.\r\n\ \r\n\ \ This\ main\ class\ creates\ and\ initialises\ all\ the\ others\:\ it\ creates\ all\r\n\ \ rooms,\ creates\ the\ parser\ and\ starts\ the\ game.\ \ It\ also\ evaluates\ and\r\n\ \ executes\ the\ commands\ that\ the\ parser\ returns.\r\n\ \r\n\ @author\ Emeka\ Okonkwo\r\n\ @version\ 2017.11.17\r\n\ \r\n\ This\ version\ of\ the\ game\ has\ 12\ Rooms\ and\ 12\ Items\r\n\ @author\ \ Michael\ K\u00F6lling\ and\ David\ J.\ Barnes\r\n\ @version\ 2011.08.10\r\n
 comment1.params=
 comment1.target=Game()
 comment1.text=\r\n\ Create\ the\ game\ and\ initialise\ its\ internal\ map.\r\n
-comment10.params=command
-comment10.target=boolean\ quit(Command)
-comment10.text=\ \r\n\ "Quit"\ was\ entered.\ Check\ the\ rest\ of\ the\ command\ to\ see\r\n\ whether\ we\ really\ quit\ the\ game.\r\n\ @return\ true,\ if\ this\ command\ quits\ the\ game,\ false\ otherwise.\r\n
+comment10.params=
+comment10.target=void\ goback()
+comment10.text=\r\n\ This\ methods\ gets\ the\ previous\ Room\ that\ you\ were\ currently\ in\ and\ goes\ back\ to\ that\ room\r\n
+comment11.params=command
+comment11.target=boolean\ quit(Command)
+comment11.text=\ \r\n\ "Quit"\ was\ entered.\ Check\ the\ rest\ of\ the\ command\ to\ see\r\n\ whether\ we\ really\ quit\ the\ game.\r\n\ @return\ true,\ if\ this\ command\ quits\ the\ game,\ false\ otherwise.\r\n
 comment2.params=
 comment2.target=void\ createRooms()
 comment2.text=\r\n\ Create\ all\ the\ rooms\ and\ link\ their\ exits\ together.\r\n
@@ -31,4 +34,4 @@ comment8.text=\r\n\ Print\ out\ some\ help\ information.\r\n\ Here\ we\ print\ s
 comment9.params=command
 comment9.target=void\ goRoom(Command)
 comment9.text=\ \r\n\ Try\ to\ go\ in\ one\ direction.\ If\ there\ is\ an\ exit,\ enter\ the\ new\r\n\ room,\ otherwise\ print\ an\ error\ message.\r\n
-numComments=11
+numComments=12

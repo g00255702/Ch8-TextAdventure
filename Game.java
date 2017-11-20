@@ -13,6 +13,8 @@
  * 
  * @author Emeka Okonkwo
  * @version 2017.11.17
+ * 
+ * This version of the game has 12 Rooms and 12 Items
  * @author  Michael Kölling and David J. Barnes
  * @version 2011.08.10
  */
@@ -21,6 +23,7 @@ public class Game
 {
     private Parser parser;
     private Room currentRoom;
+    private Room priorRoom;
         
     /**
      * Create the game and initialise its internal map.
@@ -187,6 +190,10 @@ public class Game
             case GO:
                 goRoom(command);
                 break;
+                
+            case BACK:
+                goback();
+                break;
 
             case QUIT:
                 wantToQuit = quit(command);
@@ -199,6 +206,8 @@ public class Game
             case EAT:
                 eat();
                 break;
+                
+            
                 
         }
         return wantToQuit;
@@ -241,7 +250,23 @@ public class Game
             System.out.println("There is no door!");
         }
         else {
+            priorRoom = currentRoom;
             currentRoom = nextRoom;
+            System.out.println(currentRoom.getLongDescription());
+        }
+    }
+    
+    /**
+     * This methods gets the previous Room that you were currently in and goes back to that room
+     */
+    private void goback()
+    {
+        if(priorRoom == null)
+        {
+            System.out.println("You haven't moved anywhere. Start walking!");
+        }
+        else{
+            currentRoom = priorRoom;
             System.out.println(currentRoom.getLongDescription());
         }
     }

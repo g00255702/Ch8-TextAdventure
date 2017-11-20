@@ -56,7 +56,7 @@ public class Room
     {
         items.put(newItem.getDescription(), newItem);
     }
-
+    
     /**
      * @return The short description of the room
      * (the one that was defined in the constructor).
