@@ -21,6 +21,8 @@ public class Room
 {
     private String description;
     private HashMap<String, Room> exits;        // stores exits of this room.
+    private HashMap<String, Item> items;
+
 
     /**
      * Create a room described "description". Initially, it has
@@ -32,7 +34,9 @@ public class Room
     {
         this.description = description;
         exits = new HashMap<String, Room>();
+        items = new HashMap<String, Item>();
     }
+    
 
     /**
      * Define an exit from this room.
@@ -42,6 +46,15 @@ public class Room
     public void setExit(String direction, Room neighbor) 
     {
         exits.put(direction, neighbor);
+    }
+    
+    /**
+     * Define an item for the room
+     * @param newItem
+     */
+    public void setItem(Item newItem)
+    {
+        items.put(newItem.getDescription(), newItem);
     }
 
     /**
@@ -61,7 +74,7 @@ public class Room
      */
     public String getLongDescription()
     {
-        return "You are " + description + ".\n" + getExitString();
+        return "You are " + description + ".\n" + getExitString() + ".\n" + getItemString();
     }
 
     /**
@@ -75,6 +88,20 @@ public class Room
         Set<String> keys = exits.keySet();
         for(String exit : keys) {
             returnString += " " + exit;
+        }
+        return returnString;
+    }
+    
+    /**
+     * Returns a string describing the room's item
+     * @return Details of the room's items
+     */
+    private String getItemString()
+    {
+        String returnString = "Items:";
+        Set<String> keys = items.keySet();
+        for(String item : keys){
+            returnString += " " + item;
         }
         return returnString;
     }

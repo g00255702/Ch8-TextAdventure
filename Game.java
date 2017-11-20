@@ -39,50 +39,79 @@ public class Game
         Room basement, lab1, lab2, kitchen1, kitchen2, backyard, secret, bathroom, ditch, otherside, theMoon, portal;
       
         // create the rooms
-        basement = new Room("You are currently in your happy place");
-        lab1 = new Room("You have entered your lab. You are surrounded by creatures not from earth");
-        lab2 = new Room("You enter a pitch black room with portal facing you");
-        kitchen1 = new Room("Entered the kitchen. Why not grab a bite to eat");
-        kitchen2 = new Room("Found yourself in another kitchen, but nothing edible to eat");
-        backyard = new Room("Find yourself 1,000 feet above ground level. Why don't you head back inside");
+        basement = new Room("currently in your happy place");
+        lab1 = new Room("in your lab. You are surrounded by creatures not from earth");
+        lab2 = new Room("in pitch black room with portal facing you");
+        kitchen1 = new Room("in the kitchen. Why not grab a bite to eat");
+        kitchen2 = new Room("in another kitchen, but nothing edible to eat");
+        backyard = new Room("1,000 feet above ground level. Why don't you head back inside");
         secret = new Room("You die instantly without knowing what eat you");
         bathroom = new Room("Entered the bathroom. You know what to do from there");
         ditch = new Room("You fell into a ditch");
         otherside = new Room("You find yourself not fimilar to earth");
-        theMoon = new Room("Welcome to the Moon. You can't go back and have no oxygen to inhale. bye bye.");
+        theMoon = new Room("on the Moon. You can't go back and have no oxygen to inhale. There is a space suit, but good luck putting that on in time. bye bye.");
         portal = new Room("You stepped into a portal and feel nauseous. Where would you like to go from here?");
         
+        //creat items
+        Item gloves = new Item("pair of gloves", 4);
+        Item helmet = new Item("sturdy helment", 10);
+        Item knife = new Item("sharp knife", 13);
+        Item letter = new Item("Found a note saying: beware of south and west",1);
+        Item skeleton = new Item("Dead corpse",15);
+        Item giantPillow = new Item("giant pillow", 500);
+        Item toiletPaper = new Item("toilet paper", 3);
+        Item spaceSuit = new Item("Space suit", 30);
+        Item headphones = new Item("headphones but no phone D:", 7);
+        Item book = new Item("a book with a title named: research or death", 20);
+        Item deadRat = new Item("a dead rat", 5);
+        Item door = new Item("nothing but a door",0);
         
+        //place items in rooms
+        basement.setItem(knife);
+        bathroom.setItem(toiletPaper);
+        kitchen1.setItem(book);
+        kitchen2.setItem(deadRat);
+        lab1.setItem(gloves);
+        lab2.setItem(helmet);
+        ditch.setItem(skeleton);
+        otherside.setItem(giantPillow);
+        theMoon.setItem(spaceSuit);
+        secret.setItem(door);
+        portal.setItem(headphones);
+        backyard.setItem(letter);
+
         
         // initialise room exits
-        bathroom.setExit("west", basement);
+        bathroom.setExit("east", basement);
         
-        kitchen1.setExit("north", basement);
+        kitchen1.setExit("south", basement);
         
-        basement.setExit("east", bathroom);
-        basement.setExit("west", lab1);
-        basement.setExit("south", kitchen1);
+        basement.setExit("west", bathroom);
+        basement.setExit("east", lab1);
+        basement.setExit("north", kitchen1);
         
-        lab1.setExit("east", basement);
-        lab1.setExit("west", kitchen2);
-        lab1.setExit("north", lab2);
+        lab1.setExit("west", basement);
+        lab1.setExit("east", kitchen2);
+        lab1.setExit("south", lab2);
         
-        lab2.setExit("south", lab1);
-        lab2.setExit("east", portal);
+        lab2.setExit("north", lab1);
+        lab2.setExit("west", portal);
         
-        portal.setExit("west", lab2);
-        portal.setExit("north", theMoon);
+        portal.setExit("east", lab2);
+        portal.setExit("south", theMoon);
+        portal.setExit("north", backyard);
+        portal.setExit("west", secret);
         
-        kitchen2.setExit("east", lab1);
-        kitchen2.setExit("west", backyard);
+        kitchen2.setExit("west", lab1);
+        kitchen2.setExit("east", backyard);
         
-        backyard.setExit("north", ditch);
-        backyard.setExit("east", kitchen2);
+        backyard.setExit("south", ditch);
+        backyard.setExit("west", kitchen2);
         
-        ditch.setExit("north", otherside);
+        ditch.setExit("south", otherside);
         
-        otherside.setExit("north", secret);
-        otherside.setExit("south", ditch);
+        otherside.setExit("south", secret);
+        otherside.setExit("north", ditch);
 
         currentRoom = basement;  // start game outside
     }
@@ -216,6 +245,8 @@ public class Game
             System.out.println(currentRoom.getLongDescription());
         }
     }
+    
+
 
     /** 
      * "Quit" was entered. Check the rest of the command to see
