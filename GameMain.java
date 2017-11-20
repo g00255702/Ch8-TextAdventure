@@ -8,7 +8,6 @@
 public class GameMain
 {
     // instance variables - replace the example below with your own
-    private int x;
 
     /**
      * Constructor for objects of class GameMain
@@ -16,6 +15,7 @@ public class GameMain
     public GameMain()
     {
         // initialise instance variables
-        x = 0;
+        Game game = new Game();
+        game.play();
     }
 }

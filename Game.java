@@ -37,9 +37,6 @@ public class Game
     private Room currentRoom;
     private Room priorRoom;
     private Stack priorRooms = new Stack(); //used to implement the back command to take several rooms back
-    private Room ditch;
-    private Room secret;
-    private Room theMoon;
         
     /**
      * Create the game and initialise its internal map.
