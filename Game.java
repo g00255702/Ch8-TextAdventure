@@ -37,7 +37,9 @@ public class Game
     private Room currentRoom;
     private Room priorRoom;
     private Stack priorRooms = new Stack(); //used to implement the back command to take several rooms back
-        
+    private Room theMoon;
+    private Room ditch;
+    private Room secret;
     /**
      * Create the game and initialise its internal map.
      */
@@ -52,7 +54,7 @@ public class Game
      */
     private void createRooms()
     {
-        Room basement, lab1, lab2, kitchen1, kitchen2, backyard, secret, bathroom, ditch, otherside, theMoon, portal;
+        Room basement, lab1, lab2, kitchen1, kitchen2, backyard, bathroom, otherside,portal;
       
         // create the rooms
         basement = new Room("currently in your happy place");
@@ -61,12 +63,12 @@ public class Game
         kitchen1 = new Room("in the kitchen. Why not grab a bite to eat");
         kitchen2 = new Room("in another kitchen, but nothing edible to eat");
         backyard = new Room("1,000 feet above ground level. Why don't you head back inside");
-        secret = new Room("You die instantly without knowing what eat you");
+        secret = new Room("instantly dead without knowing what eat you");
         bathroom = new Room("Entered the bathroom. You know what to do from there");
-        ditch = new Room("You fell into a ditch");
-        otherside = new Room("You find yourself not fimilar to earth");
+        ditch = new Room("in a ditch.");
+        otherside = new Room("somewhere not fimilar to earth");
         theMoon = new Room("on the Moon. You can't go back and have no oxygen to inhale. There is a space suit, but good luck putting that on in time. bye bye.");
-        portal = new Room("You stepped into a portal and feel nauseous. Where would you like to go from here?");
+        portal = new Room("inside a portal and feel nauseous. Where would you like to go from here?");
         
         //creat items
         Item gloves = new Item("pair of gloves", 4);
@@ -279,6 +281,18 @@ public class Game
         if(priorRoom == null)
         {
             System.out.println("You haven't moved anywhere. Start walking!");
+        }
+        else if(currentRoom == ditch)
+        {
+            System.out.println("Good luck climbing that after falling so far down");
+        }
+        else if(currentRoom == secret)
+        {
+            System.out.println("Can't go back when your already dead");
+        }
+        else if(currentRoom == theMoon)
+        {
+            System.out.println("Sorry the portal just closed. Good luck");
         }
         else if(priorRooms.empty())
         {

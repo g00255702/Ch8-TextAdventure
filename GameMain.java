@@ -2,8 +2,8 @@
 /**
  * Write a description of class GameMain here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Emeka Okonkwo
+ * @version 2017.11.20
  */
 public class GameMain
 {
@@ -11,6 +11,7 @@ public class GameMain
 
     /**
      * Constructor for objects of class GameMain
+     * 
      */
     public GameMain()
     {
