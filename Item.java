@@ -1,9 +1,13 @@
 
 /**
- * Write a description of class Item here.
+ * * This class is part of the "Trapped Genius" application. 
+ * "Trapped Genius" is a very simple, text based adventure game.
+ * 
+ * An "Item" represents one location in the scenery of the game. It exits in every room
+ * and is used to help the user throughout the game.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Emeka Okonkwo
+ * @version 2017.11.20
  */
 public class Item
 {
@@ -14,8 +18,8 @@ public class Item
     /**
      * Sets the description and weight
      * 
-     * @set description
-     * @set weight
+     * @param description
+     * @param weight
      */
     public Item(String description, int weight)
     {

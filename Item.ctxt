@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=Item
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Item\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ *\ This\ class\ is\ part\ of\ the\ "Trapped\ Genius"\ application.\ \r\n\ "Trapped\ Genius"\ is\ a\ very\ simple,\ text\ based\ adventure\ game.\r\n\ \r\n\ An\ "Item"\ represents\ one\ location\ in\ the\ scenery\ of\ the\ game.\ It\ exits\ in\ every\ room\r\n\ and\ is\ used\ to\ help\ the\ user\ throughout\ the\ game.\r\n\r\n\ @author\ Emeka\ Okonkwo\r\n\ @version\ 2017.11.20\r\n
 comment1.params=description\ weight
 comment1.target=Item(java.lang.String,\ int)
-comment1.text=\r\n\ Sets\ the\ description\ and\ weight\r\n\ \r\n\ @set\ description\r\n\ @set\ weight\r\n
+comment1.text=\r\n\ Sets\ the\ description\ and\ weight\r\n\ \r\n\ @param\ description\r\n\ @param\ weight\r\n
 comment2.params=
 comment2.target=java.lang.String\ getDescription()
 comment2.text=\r\n\ Returns\ the\ description\ of\ the\ item\r\n\ \r\n\ @return\ the\ description\r\n

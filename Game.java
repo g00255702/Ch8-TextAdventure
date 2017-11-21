@@ -21,7 +21,7 @@ import java.util.Stack;
  * Added a look command
  * Added a eat command
  * Added a stack to go back multiple rooms
- * 
+ * Added multiple unique Rooms that won't allow user to go back
  * 
  * 
  * 
@@ -37,10 +37,10 @@ public class Game
     private Room currentRoom;
     private Room priorRoom;
     private Stack priorRooms = new Stack(); //used to implement the back command to take several rooms back
-    private Room theMoon;
+    private Room theMoon; // user is unable to go back to prior room once entered
     private Room ditch;
     private Room secret;
-    private Room trap;
+    private Room trap; // special room designed to only allow the user to enter this room over and over
     
     /**
      * Create the game and initialise its internal map.

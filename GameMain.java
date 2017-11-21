@@ -1,6 +1,6 @@
 
 /**
- * Write a description of class GameMain here.
+ * This class is able to play the game without having to make an instance of the class
  *
  * @author Emeka Okonkwo
  * @version 2017.11.20
