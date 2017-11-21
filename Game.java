@@ -40,6 +40,8 @@ public class Game
     private Room theMoon;
     private Room ditch;
     private Room secret;
+    private Room trap;
+    
     /**
      * Create the game and initialise its internal map.
      */
@@ -69,6 +71,7 @@ public class Game
         otherside = new Room("somewhere not fimilar to earth");
         theMoon = new Room("on the Moon. You can't go back and have no oxygen to inhale. There is a space suit, but good luck putting that on in time. bye bye.");
         portal = new Room("inside a portal and feel nauseous. Where would you like to go from here?");
+        trap = new Room("Idk. Lets go back");
         
         //creat items
         Item gloves = new Item("pair of gloves", 4);
@@ -83,6 +86,7 @@ public class Game
         Item book = new Item("a book with a title named: research or death", 20);
         Item deadRat = new Item("a dead rat", 5);
         Item door = new Item("nothing but a door",0);
+        Item note = new Item("Note: Don't let the pathway deceive you. You'll eventually get out", 1);
         
         //place items in rooms
         basement.setItem(knife);
@@ -97,6 +101,7 @@ public class Game
         secret.setItem(door);
         portal.setItem(headphones);
         backyard.setItem(letter);
+        trap.setItem(note);
 
         
         // initialise room exits
@@ -107,6 +112,12 @@ public class Game
         basement.setExit("west", bathroom);
         basement.setExit("east", lab1);
         basement.setExit("north", kitchen1);
+        basement.setExit("south", trap);
+        
+        trap.setExit("north", trap);
+        trap.setExit("south", trap);
+        trap.setExit("east", trap);
+        trap.setExit("west", trap);
         
         lab1.setExit("west", basement);
         lab1.setExit("east", kitchen2);
@@ -124,7 +135,8 @@ public class Game
         kitchen2.setExit("east", backyard);
         
         backyard.setExit("south", ditch);
-        backyard.setExit("west", kitchen2);
+        backyard.setExit("", kitchen2);
+        
         
         ditch.setExit("south", otherside);
         
@@ -293,6 +305,10 @@ public class Game
         else if(currentRoom == theMoon)
         {
             System.out.println("Sorry the portal just closed. Good luck");
+        }
+        else if(currentRoom == trap)
+        {
+            System.out.println("Sorry your stuck!");
         }
         else if(priorRooms.empty())
         {
